@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор CDAI | Ревматоидный артрит</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧮 Калькулятор CDAI</h1>
+            <p>Clinical Disease Activity Index для ревматоидного артрита</p>
+        </header>
+
+        <main>
+            <form id="cdai-form">
+                <div class="form-group">
+                    <label for="tjc28">ЧБС28 (число болезненных суставов, 0–28)</label>
+                    <input type="number" id="tjc28" min="0" max="28" value="0" step="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sjc28">ОПС28 (отёчные, припухшие суставы, 0–28)</label>
+                    <input type="number" id="sjc28" min="0" max="28" value="0" step="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Оценка состояния пациентом (ВАШ 0–10)</label>
+                    <input type="range" id="pt_ga" min="0" max="10" step="0.1" value="0">
+                    <span id="pt_ga_val" class="range-value">0.0</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Оценка состояния врачом (ВАШ 0–10)</label>
+                    <input type="range" id="ph_ga" min="0" max="10" step="0.1" value="0">
+                    <span id="ph_ga_val" class="range-value">0.0</span>
+                </div>
+
+                <button type="submit" id="calc-btn">Рассчитать CDAI</button>
+            </form>
+
+            <div id="result-container" class="hidden">
+                <div class="result-header">
+                    <h2>CDAI: <span id="cdai-score">0</span></h2>
+                    <span id="cdai-category" class="badge">-</span>
+                </div>
+                <p id="cdai-interpretation" class="info-text"></p>
+                <p id="cdai-recommendation" class="info-text"></p>
+            </div>
+
+            <div class="disclaimer">
+                ⚠️ Калькулятор предназначен для образовательных целей. Результаты не заменяют клиническое решение врача-ревматолога и должны интерпретироваться в контексте полной картины заболевания.
+            </div>
+            <div>
+                "Суставы, которые входят в подсчет"
+                <li>
+                    Плечевые (2) + Локтевые (2) + Лучезапястные (2) +
+Межфаланговые суставы больших пальцев кистей (2) +
+Пястно-фаланговые (10) + Проксимальные межфаланговые (10) +
+Коленные (2) = 28 суставов
+                </li>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
